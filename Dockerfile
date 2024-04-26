@@ -1,7 +1,7 @@
 FROM nginx:latest
 
 
-COPY app.py /usr/share/nginx/py
+COPY index.html /usr/share/nginx/html
 
 # Expose port 80 for HTTP traffic
 EXPOSE 80
