@@ -1,0 +1,24 @@
+Docker Build and Push
+
+on:
+  push:
+    branches:
+      - main  # adjust branch as needed
+
+jobs:
+  build_and_push:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
+   
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+     
+    - name: Login to Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u swizel012 --password-stdin
+   
+    - name: Build Docker image
+      run: docker build -t swizel012/mlop:latest .
+     
+    - name: Push Docker image to Docker Hub
+      run: docker push docker push swizel012/mlop:latest
